@@ -3,9 +3,9 @@ extern {
 }
 
 #[no_mangle]
-pub fn init_module() -> isize {
+pub fn init_module() -> int {
     unsafe {
-        my_printk("<1>rust_linux::Hello Linux from Rust".as_bytes());
+        my_printk("rust_linux: Hello Linux from Rust\n".as_bytes());
     }
     return 0;
 }
@@ -13,7 +13,7 @@ pub fn init_module() -> isize {
 #[no_mangle]
 pub fn cleanup_module() {
     unsafe {
-       my_printk("<1>Goodby Linux from Rust".as_bytes());
+       my_printk("rust_linux: Goodby Linux from Rust\n".as_bytes());
     }
 }
 
