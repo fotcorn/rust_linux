@@ -1,5 +1,5 @@
 obj-m += hello.o
-hello-objs := hello-main.o lib.o
+hello-objs := hello-main.o
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
