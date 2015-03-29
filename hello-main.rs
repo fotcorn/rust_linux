@@ -1,11 +1,11 @@
 extern {
-    fn my_printk(str: &[u8]);
+    fn printk(str: &[u8]);
 }
 
 #[no_mangle]
-pub fn init_module() -> int {
+pub fn init_module() -> isize {
     unsafe {
-        my_printk("rust_linux: Hello Linux from Rust\n".as_bytes());
+        printk("rust_linux: Hello Linux from Rust\n".as_bytes());
     }
     return 0;
 }
@@ -13,7 +13,6 @@ pub fn init_module() -> int {
 #[no_mangle]
 pub fn cleanup_module() {
     unsafe {
-       my_printk("rust_linux: Goodby Linux from Rust\n".as_bytes());
+       printk("rust_linux: Goodby Linux from Rust\n".as_bytes());
     }
 }
-
